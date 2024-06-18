@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .spacer {
   flex: 1 1 auto;
@@ -8,5 +12,16 @@
 }
 
 .user-card, .setting-card, .dashboard-card {
+  margin: 16px;
+  flex: 1 1 300px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+h2 {
   margin: 16px 0;
 }
