@@ -1,0 +1,18 @@
+.dashboard-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  
+  .dashboard-card {
+    width: 300px;
+    margin: 20px;
+    background-color: rgb(58, 233, 189);
+    box-shadow: 0 2px 5px rgba(31, 7, 167, 0.15);
+  }
+
+  .dashboard-card-content{
+   margin: 100px;;
+  }
+  

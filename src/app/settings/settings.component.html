@@ -1,0 +1,12 @@
+<div class="settings-container">
+    <h2>Settings</h2>
+    <mat-card *ngFor="let setting of settings" class="setting-card">
+      <mat-card-title>{{ setting.name }}</mat-card-title>
+      <mat-card-content>
+        <mat-slide-toggle [(ngModel)]="setting.value" (change)="toggleSetting(setting)">
+          {{ setting.value ? 'On' : 'Off' }}
+        </mat-slide-toggle>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

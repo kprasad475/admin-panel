@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.container {
+  padding: 16px;
+}
+
+.user-card, .setting-card, .dashboard-card {
+  margin: 16px 0;
+}
