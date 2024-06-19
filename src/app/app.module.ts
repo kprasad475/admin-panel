@@ -13,13 +13,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { SettingsComponent } from './settings/settings.component';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { FilterComponent } from './filter/filter.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     UserManagementComponent,
-    SettingsComponent
+    SettingsComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,9 @@ import { HttpClient, provideHttpClient } from '@angular/common/http';
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatInputModule,
+    MatListModule
   ],
   providers: [
     provideHttpClient()

@@ -4,6 +4,15 @@
     justify-content: space-around;
     padding: 20px;
   }
+  .user-management-container input[type=text]{
+    float: right;
+    padding: 2px;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+    border-radius: 5px;
+    border: color(srgb rgb(0, 54, 126) green blue);
+  }
   
   .user-card {
     width: 300px;
