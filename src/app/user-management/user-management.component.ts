@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User, UserService } from '../user.service';
 
-interface User {
-  name: string;
-  email: string;
-}
+
 
 @Component({
   selector: 'app-user-management',
@@ -12,12 +10,14 @@ interface User {
 })
 export class UserManagementComponent implements OnInit {
 
-  users: User[] = [
-    { name: 'John Doe', email: 'john@example.com' },
-    { name: 'Jane Smith', email: 'jane@example.com' }
-  ];
+  users: User[] ;
 
-  constructor() { }
+  constructor(private service:UserService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.service.getUsers().subscribe(data =>{
+      this.users = data;
+      console.log(data)
+    })
+  }
 }

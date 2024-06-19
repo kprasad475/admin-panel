@@ -2,9 +2,15 @@
   <h2>User Management</h2>
   <div class="cards-container">
     <mat-card *ngFor="let user of users" class="user-card">
-      <mat-card-title>{{ user.name }}</mat-card-title>
+      <mat-card-title>{{ user.name}}</mat-card-title>
+      <mat-card-content>
+        LastName: {{ user.username }}
+      </mat-card-content>
       <mat-card-content>
         Email: {{ user.email }}
+      </mat-card-content>
+      <mat-card-content>
+        City: {{ user.address.city}}
       </mat-card-content>
     </mat-card>
   </div>

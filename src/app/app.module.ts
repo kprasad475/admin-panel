@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { SettingsComponent } from './settings/settings.component';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { SettingsComponent } from './settings/settings.component';
     MatCardModule,
     MatSlideToggleModule
   ],
-  providers: [],
+  providers: [
+    provideHttpClient()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

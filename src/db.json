@@ -1,0 +1,12 @@
+
+{
+    "users": 
+    [{"id":1,"first_name":"Luciano","last_name":"Karolyi","email":"lkarolyi0@skyrock.com","gender":"Male"},
+{"id":2,"first_name":"Barbara","last_name":"Mangin","email":"bmangin1@bravesites.com","gender":"Female"},
+{"id":3,"first_name":"Revkah","last_name":"Cubbinelli","email":"rcubbinelli2@timesonline.co.uk","gender":"Female"},
+{"id":4,"first_name":"Milo","last_name":"Elstob","email":"melstob3@ehow.com","gender":"Male"},
+{"id":5,"first_name":"Wanda","last_name":"Iannitti","email":"wiannitti4@squarespace.com","gender":"Female"},
+{"id":6,"first_name":"Josie","last_name":"Gaucher","email":"jgaucher5@123-reg.co.uk","gender":"Female"},
+{"id":7,"first_name":"Cosette","last_name":"Lyddy","email":"clyddy6@weather.com","gender":"Female"},
+{"id":8,"first_name":"Wait","last_name":"Kybbye","email":"wkybbye7@jalbum.net","gender":"Male"}]
+}
