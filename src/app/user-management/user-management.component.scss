@@ -1,26 +1,33 @@
 .user-management-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px;
-  }
-  .user-management-container input[type=text]{
-    float: right;
-    padding: 2px;
-    margin-top: 8px;
-    margin-right: 16px;
-    font-size: 17px;
-    border-radius: 5px;
-    border: color(srgb rgb(0, 54, 126) green blue);
-  }
-  
-  .user-card {
-    width: 300px;
-    margin: 20px;
-    background-color: rgb(18, 224, 252);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    text-align: center;
-    text-decoration: solid;
-    text-shadow: 0in;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.user-management-container input[type=text] {
+  width: 300px;
+  padding: 10px;
+  margin: 20px 0;
+  font-size: 17px;
+  border-radius: 5px;
+  border: 1px solid #00367e;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.user-card {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 20px;
+  background-color: rgb(18, 224, 252);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  text-align: center;
+  padding: 10px;
+}
