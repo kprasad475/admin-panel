@@ -11,6 +11,8 @@ export class UserManagementComponent implements OnInit {
   users: User[] = [];
   searchText: string = "";
   filteredText: User[] = [];
+  sortCondition:boolean = false
+  originalItems : any [] = []
 
   constructor(private service: UserService) { }
 
@@ -18,6 +20,8 @@ export class UserManagementComponent implements OnInit {
     this.service.getUsers().subscribe(data => {
       this.users = data;
       this.filteredText = data;
+     this.originalItems = [...this.filteredText];
+
     });
   }
 
@@ -34,4 +38,22 @@ export class UserManagementComponent implements OnInit {
     }
     console.log(this.filteredText);
   }
+  sort() {
+    // Toggle the sort condition
+    this.sortCondition = !this.sortCondition;
+
+    if (this.sortCondition) {
+      // If sortCondition is true, sort the array
+      this.filteredText.sort((a, b) => a.name.localeCompare(b.name));
+      console.log("yyyyy")
+    } else {
+      // If sortCondition is false, shuffle the array
+     // this.filteredText = this.shuffleArray([...this.originalItems]);
+     this.filteredText.sort((a, b) => b.name.localeCompare(a.name));
+
+      console.log("kkk")
+    }
+    console.log(this.sortCondition);
+  }
+  
 }
