@@ -5,13 +5,36 @@
   padding: 20px;
 }
 
-.user-management-container input[type=text] {
-  width: 300px;
+.search-sort-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%; /* Ensure the container takes full width */
+  max-width: 600px; /* Adjust the maximum width as needed */
+}
+
+.search-box {
+  flex: 1;
   padding: 10px;
-  margin: 20px 0;
+  margin-right: 10px;
   font-size: 17px;
   border-radius: 5px;
   border: 1px solid #00367e;
+  width: 100%; /* Ensure the input takes full width of its container */
+}
+
+.sort-button {
+  padding: 10px 20px;
+  background-color: #1687ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  
+}
+
+.sort-button:hover {
+  background-color: #0056b3;
 }
 
 .cards-container {
@@ -26,7 +49,7 @@
   flex-direction: column;
   width: 300px;
   margin: 20px;
-  background-color: rgb(18, 224, 252);
+  background-color: rgb(108, 236, 253);
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
   text-align: center;
   padding: 10px;

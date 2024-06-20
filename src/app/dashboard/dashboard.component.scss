@@ -1,18 +1,30 @@
 .dashboard-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px;
-  }
-  
-  .dashboard-card {
-    width: 300px;
-    margin: 20px;
-    background-color: rgb(58, 233, 189);
-    box-shadow: 0 2px 5px rgba(31, 7, 167, 0.15);
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  gap: 20px; // Adds spacing between items inside the flex container
+}
 
-  .dashboard-card-content{
-   margin: 100px;;
+.dashboard-card {
+  width: 300px; // Adjusted to ensure the card doesn’t overlap with the charts
+  margin: 20px;
+  background-color: rgb(58, 233, 189);
+  box-shadow: 0 2px 5px rgba(31, 7, 167, 0.15);
+}
+
+.dashboard-card-content {
+  padding: 20px; // Adjusted to reduce excess spacing and improve card layout
+}
+
+.charts-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px; // Adds spacing between the chart divs
+  padding: 20px; // Padding to ensure content is not too close to the edge
+
+  .chart {
+      flex: 1; // Ensures each canvas takes up available space
   }
-  
+}

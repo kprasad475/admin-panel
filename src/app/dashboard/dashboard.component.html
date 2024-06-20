@@ -1,11 +1,24 @@
+<!-- dashboard.component.html -->
 <div class="dashboard-container">
   <h2>Dashboard</h2>
+
   <div class="cards-container">
-    <mat-card *ngFor="let card of [1, 2, 3]" class="dashboard-card">
-      <mat-card-title>Card {{ card }}</mat-card-title>
-      <mat-card-content>
-        This is the content of card {{ card }}.
-      </mat-card-content>
+    <mat-card *ngFor="let stat of stats" class="dashboard-card">
+      <mat-card-title>{{ stat.title }}</mat-card-title>
+      <mat-card-content>{{ stat.value }}</mat-card-content>
     </mat-card>
+  </div>
+
+  <div class="charts-container">
+    <div class="chart">
+      <canvas id="userActivityChart"></canvas>
+    </div>
+  </div>
+
+  <div class="recent-activity">
+    <h2>Recent Activity</h2>
+    <ul>
+      <li *ngFor="let activity of recentActivities">{{ activity }}</li>
+    </ul>
   </div>
 </div>
