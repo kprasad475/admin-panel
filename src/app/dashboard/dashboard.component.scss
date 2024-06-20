@@ -9,12 +9,22 @@
 .dashboard-card {
   width: 300px; // Adjusted to ensure the card doesn’t overlap with the charts
   margin: 20px;
-  background-color: rgb(58, 233, 189);
+  background-color: rgb(58, 233, 189); // Updated background color for visual appeal
   box-shadow: 0 2px 5px rgba(31, 7, 167, 0.15);
+  transition: transform 0.3s ease; // Adding transition for hover effect
+  &:hover {
+    transform: translateY(-10px); // Adding moving animation on hover
+}
 }
 
 .dashboard-card-content {
   padding: 20px; // Adjusted to reduce excess spacing and improve card layout
+  transition: transform 0.3s ease; // Adding transition for hover effect
+  &:hover {
+    transform: translateY(-20px); // Adding moving animation on hover
+}
+
+
 }
 
 .charts-container {
@@ -24,7 +34,15 @@
   gap: 20px; // Adds spacing between the chart divs
   padding: 20px; // Padding to ensure content is not too close to the edge
 
-  .chart {
-      flex: 1; // Ensures each canvas takes up available space
-  }
+  .chart-card {
+    flex: 1; // Ensures each canvas takes up available space
+    background-color: #f0f0f0; // Updated background color for the chart card
+    padding: 20px; // Added padding to ensure content is centered and clean
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Soft shadow for visual depth
+    transition: transform 0.3s ease; // Adding transition for hover effect
+
+    &:hover {
+        transform: translateY(-20px); // Adding moving animation on hover
+    }
+}
 }

@@ -26,12 +26,14 @@ export class DashboardComponent implements AfterViewInit {
     }
   }
 
+  
   initializeCharts() {
     const userActivityCanvas = document.getElementById('userActivityChart') as HTMLCanvasElement;
+    const salesCanvas = document.getElementById('salesChart') as HTMLCanvasElement;
 
-    if (userActivityCanvas) {
+    if (userActivityCanvas && salesCanvas) {
       new Chart(userActivityCanvas, {
-        type: 'line', // Chart type
+        type: 'line', // Chart type for User Activity
         data: {
           labels: ['January', 'February', 'March', 'April', 'May'],
           datasets: [{
@@ -53,8 +55,32 @@ export class DashboardComponent implements AfterViewInit {
           }
         }
       });
+
+      new Chart(salesCanvas, {
+        type: 'bar', // Chart type for Sales
+        data: {
+          labels: ['January', 'February', 'March', 'April', 'May'],
+          datasets: [{
+            label: 'Sales',
+            data: [15, 25, 35, 45, 55],
+            backgroundColor: 'rgba(153, 102, 255, 0.2)',
+            borderColor: 'rgba(153, 102, 255, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            x: {
+              beginAtZero: true
+            },
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
     } else {
-      console.error('Canvas element not found for userActivityChart');
+      console.error('Failed to get canvas element(s) with specified ID(s)');
     }
   }
 }
