@@ -8,10 +8,21 @@ import { Chart, registerables } from 'chart.js';
 })
 export class DashboardComponent implements AfterViewInit {
   stats = [
-    { title: 'Total Users', value: 1234 },
-    { title: 'Active Users', value: 567 },
-    { title: 'Revenue', value: '$12,345' }
+    { title: 'Website visits', value: 1234, icon: 'visibility', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF9W9vwDNn5X7zAVeDHXgUKo0nBy0pqCaDcw&s' },
+    { title: 'Active Users', value: 567, icon: 'group', image: 'https://www.dpreview.com/files/p/articles/7961724650/General-Mt-Donna-Buang-Myrtle-Beech-Tree-Victoria.jpeg' },
+    { title: 'Revenue', value: '$12,345', icon: 'monetization_on', image: 'https://en.wikipedia.org/wiki/List_of_tallest_residential_buildings#/media/File:Dubai_Marina_Skyline.jpg' },
+    // Add other stats as needed
   ];
+
+  picStats = [
+    { title: 'Website visits', value: 1234, icon: 'visibility', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF9W9vwDNn5X7zAVeDHXgUKo0nBy0pqCaDcw&s' },
+    { title: 'Active Users', value: 567, icon: 'group', image: 'https://www.dpreview.com/files/p/articles/7961724650/General-Mt-Donna-Buang-Myrtle-Beech-Tree-Victoria.jpeg' },
+    { title: 'Revenue', value: '$12,345', icon: 'monetization_on', image: 'https://en.wikipedia.org/wiki/List_of_tallest_residential_buildings#/media/File:Dubai_Marina_Skyline.jpg' },
+    // Add other stats as needed
+  ];
+  userActivityChartImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF9W9vwDNn5X7zAVeDHXgUKo0nBy0pqCaDcw&s';
+  salesChartImage = 'https://www.dpreview.com/files/p/articles/7961724650/General-Mt-Donna-Buang-Myrtle-Beech-Tree-Victoria.jpeg';
+  recentActivityImage = 'https://en.wikipedia.org/wiki/List_of_tallest_residential_buildings#/media/File:Dubai_Marina_Skyline.jpg';
 
   recentActivities = [
     'User John Doe signed up',

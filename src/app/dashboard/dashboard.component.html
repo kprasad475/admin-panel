@@ -4,7 +4,11 @@
 
   <div class="cards-container">
     <mat-card *ngFor="let stat of stats" class="dashboard-card">
-      <mat-card-title>{{ stat.title }}</mat-card-title>
+      <mat-card-title>
+        
+        <mat-icon *ngIf="stat.icon">{{ stat.icon }}</mat-icon>
+        {{ stat.title }}
+      </mat-card-title>
       <mat-card-content>{{ stat.value }}</mat-card-content>
     </mat-card>
   </div>
@@ -19,11 +23,14 @@
       <canvas id="salesChart"></canvas>
     </mat-card>
   </div>
-
+<mat-card>
+  <mat-card-content>
   <div class="recent-activity">
     <h2>Recent Activity</h2>
     <ul>
       <li *ngFor="let activity of recentActivities">{{ activity }}</li>
     </ul>
   </div>
+  </mat-card-content>
+</mat-card>
 </div>

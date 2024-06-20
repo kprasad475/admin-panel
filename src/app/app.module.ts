@@ -16,6 +16,8 @@ import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { FilterComponent } from './filter/filter.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { MatListModule } from '@angular/material/list';
     MatCardModule,
     MatSlideToggleModule,
     MatInputModule,
-    MatListModule
+    MatListModule,
+    MatIconModule
   ],
   providers: [
     provideHttpClient()

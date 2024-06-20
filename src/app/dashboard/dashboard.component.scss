@@ -5,16 +5,32 @@
   padding: 20px;
   gap: 20px; // Adds spacing between items inside the flex container
 }
+.recent-activity{
+  width: 350px; // Adjusted to ensure the card doesn’t overlap with the charts
+  margin: 20px;
+  text-align: left;
+  background-color: rgb(157, 208, 255); // Updated background color for visual appeal
+  box-shadow: 0 2px 5px rgba(212, 210, 226, 0.15);
+  transition: transform 0.3s ease; // Adding transition for hover effect
+  &:hover {
+    transform: translateY(-10px); // Adding moving animation on hover
+}
+}
 
 .dashboard-card {
   width: 300px; // Adjusted to ensure the card doesn’t overlap with the charts
   margin: 20px;
-  background-color: rgb(58, 233, 189); // Updated background color for visual appeal
+  text-align: left;
+  background-color: rgb(28, 252, 185); // Updated background color for visual appeal
   box-shadow: 0 2px 5px rgba(31, 7, 167, 0.15);
   transition: transform 0.3s ease; // Adding transition for hover effect
   &:hover {
     transform: translateY(-10px); // Adding moving animation on hover
 }
+}
+.card-icon {
+  margin-right: 8px;
+  color: #5c6bc0;
 }
 
 .dashboard-card-content {
