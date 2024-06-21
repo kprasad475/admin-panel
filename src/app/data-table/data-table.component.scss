@@ -1,0 +1,47 @@
+/* Styling for mat-table */
+.mat-elevation-z8 {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Add margin bottom for spacing */
+  
+    th.mat-header-cell {
+      background-color: #007bff; /* Header background color */
+      color: white; /* Header text color */
+      font-weight: bold; /* Header text weight */
+      padding: 12px; /* Header cell padding */
+      text-align: left; /* Header text alignment */
+    }
+  
+    td.mat-cell {
+      padding: 10px; /* Cell padding */
+      text-align: left; /* Cell text alignment */
+    }
+  
+    tr.mat-row:hover {
+      background-color: #f5f5f5; /* Hover background color */
+      cursor: pointer; /* Pointer cursor on hover */
+    }
+  }
+  
+  /* Styling for mat-paginator */
+  .mat-paginator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Add margin top for spacing */
+  
+    button.mat-paginator-navigation {
+      background-color: #007bff; /* Paginator navigation button background color */
+      color: white; /* Paginator navigation button text color */
+      margin: 0 5px; /* Margin between paginator buttons */
+    }
+  
+    input.mat-paginator-page {
+      width: 50px; /* Paginator input width */
+      text-align: center; /* Paginator input text alignment */
+    }
+  }
+  

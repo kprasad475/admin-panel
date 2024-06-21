@@ -19,6 +19,12 @@ import { MatListModule } from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import { LeafletComponent } from './leaflet/leaflet.component';
 import { LeafletMapComponent } from './leaflet-map/leaflet-map.component';
+import { MapboxMapComponent } from './mapbox-map/mapbox-map.component';
+import { DataTableComponent } from './data-table/data-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 
 
@@ -30,7 +36,9 @@ import { LeafletMapComponent } from './leaflet-map/leaflet-map.component';
     SettingsComponent,
     FilterComponent,
    
-    LeafletMapComponent
+    LeafletMapComponent,
+        MapboxMapComponent,
+        DataTableComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +52,8 @@ import { LeafletMapComponent } from './leaflet-map/leaflet-map.component';
     MatInputModule,
     MatListModule,
     MatIconModule,
+    MatTableModule,MatPaginatorModule
+    ,MatSortModule,
     
     
   ],

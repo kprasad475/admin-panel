@@ -4,16 +4,18 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "module": "commonjs",
     "types": [
       "node",
-      "leaflet"
+   "mapbox-gl"
+
+
     ]
   },
   "files": [
     "src/main.ts",
     "src/main.server.ts",
-    "server.ts"
+    "server.ts",    
+
   ],
   "include": [
     "src/**/*.d.ts"
