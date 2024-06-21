@@ -17,6 +17,9 @@ import { FilterComponent } from './filter/filter.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
+import { LeafletComponent } from './leaflet/leaflet.component';
+import { LeafletMapComponent } from './leaflet-map/leaflet-map.component';
+
 
 
 @NgModule({
@@ -25,7 +28,9 @@ import {MatIconModule} from '@angular/material/icon';
     DashboardComponent,
     UserManagementComponent,
     SettingsComponent,
-    FilterComponent
+    FilterComponent,
+   
+    LeafletMapComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatSlideToggleModule,
     MatInputModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    
+    
   ],
   providers: [
     provideHttpClient()

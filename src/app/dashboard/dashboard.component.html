@@ -1,11 +1,10 @@
-<!-- dashboard.component.html -->
 <div class="dashboard-container">
   <h2>Dashboard</h2>
 
+  <!-- Cards container -->
   <div class="cards-container">
     <mat-card *ngFor="let stat of stats" class="dashboard-card">
       <mat-card-title>
-        
         <mat-icon *ngIf="stat.icon">{{ stat.icon }}</mat-icon>
         {{ stat.title }}
       </mat-card-title>
@@ -13,6 +12,7 @@
     </mat-card>
   </div>
 
+   Charts container 
   <div class="charts-container">
     <mat-card class="chart-card">
       <h3>User Activity Chart</h3>
@@ -23,14 +23,20 @@
       <canvas id="salesChart"></canvas>
     </mat-card>
   </div>
-<mat-card>
-  <mat-card-content>
-  <div class="recent-activity">
-    <h2>Recent Activity</h2>
-    <ul>
-      <li *ngFor="let activity of recentActivities">{{ activity }}</li>
-    </ul>
-  </div>
-  </mat-card-content>
-</mat-card>
+
+  <!-- Recent activity -->
+  <mat-card>
+    <mat-card-content>
+      <div class="recent-activity">
+        <h2>Recent Activity</h2>
+        <ul>
+          <li *ngFor="let activity of recentActivities">{{ activity }}</li>
+        </ul>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Leaflet Map Component -->
+  <app-leaflet-map>zzzz</app-leaflet-map>
+
 </div>

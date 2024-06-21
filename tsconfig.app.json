@@ -4,8 +4,10 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
+    "module": "commonjs",
     "types": [
-      "node"
+      "node",
+      "leaflet"
     ]
   },
   "files": [

@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { Settings } from 'http2';
 import { SettingsComponent } from './settings/settings.component';
+import { LeafletMapComponent } from './leaflet-map/leaflet-map.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
