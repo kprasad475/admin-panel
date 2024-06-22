@@ -25,6 +25,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ListingsComponent } from './listings/listings.component';
 
 
 
@@ -38,7 +39,8 @@ import { MatTableDataSource } from '@angular/material/table';
    
     LeafletMapComponent,
         MapboxMapComponent,
-        DataTableComponent
+        DataTableComponent,
+        ListingsComponent
   ],
   imports: [
     BrowserModule,

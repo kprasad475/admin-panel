@@ -1,0 +1,17 @@
+<div class="listings-container">
+    <div *ngFor="let listing of listings" class="listing-card">
+      <mat-card>
+        <img mat-card-image [src]="'assets/' + listing.image" alt="{{ listing.title }}">
+        <mat-card-content>
+          <h3>{{ listing.title }}</h3>
+          <p>{{ listing.description }}</p>
+          <p class="price">{{ listing.price }}</p>
+          <p class="location">
+            <mat-icon>location_on</mat-icon>
+            {{ listing.location }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  
