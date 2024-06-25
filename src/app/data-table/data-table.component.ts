@@ -24,6 +24,8 @@ export class DataTableComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
   dataSource = new MatTableDataSource<UserData>(ELEMENT_DATA);
 
+  displayedCoulmning:string[]=['id','name','progress','color','status']
+
   constructor() { }
 
   ngOnInit(): void {
