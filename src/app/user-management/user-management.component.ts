@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { User, UserService } from '../user.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { UserDialogComponent } from '../user-dialog/user-dialog.component';
+
+
 
 @Component({
   selector: 'app-user-management',
@@ -14,7 +19,7 @@ export class UserManagementComponent implements OnInit {
   sortCondition:boolean = false
   originalItems : any [] = []
 
-  constructor(private service: UserService) { }
+  constructor(private service: UserService,public dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.service.getUsers().subscribe(data => {
@@ -55,5 +60,44 @@ export class UserManagementComponent implements OnInit {
     }
     console.log(this.sortCondition);
   }
+
+  addUser():void{
+    const newUser = {
+      id: '',
+      name: '',
+      username: '',
+      email: '',
+      address: {
+        street: '',
+        suite: '',
+        city: '',
+        zipcode: ''
+      },
+      phone: '',
+      website: '',
+      company: {
+        name: '',
+        catchPhrase: '',
+        bs: ''
+      }
+    };
+
+    const dialogRef = this.dialog.open(UserDialogComponent, {
+      width: '300px',
+      data: newUser
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('User added:', result);
+        this.users.push(result);
+        this.filteredText = [...this.users];
+        this.originalItems = [...this.filteredText];
+        // You can now handle the result (e.g., send it to the server)
+      }
+    });
+  }
+  
   
 }

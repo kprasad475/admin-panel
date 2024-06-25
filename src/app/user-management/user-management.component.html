@@ -3,6 +3,8 @@
   <div class="search-sort-container">
     <input type="text" placeholder="search" [(ngModel)]="searchText" (input)="search()" class="search-box">
     <button mat-button (click)="sort()" class="sort-button">Sort by name</button>
+    <button mat-button (click)="addUser()" class="sort-button">Add user</button>
+
   </div>
   <div class="cards-container">
     <mat-card *ngFor="let user of filteredText" class="user-card">

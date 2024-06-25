@@ -26,6 +26,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ListingsComponent } from './listings/listings.component';
+import { UserDialogComponent } from './user-dialog/user-dialog.component';
+
 
 
 
@@ -40,7 +42,8 @@ import { ListingsComponent } from './listings/listings.component';
     LeafletMapComponent,
         MapboxMapComponent,
         DataTableComponent,
-        ListingsComponent
+        ListingsComponent,
+        UserDialogComponent
   ],
   imports: [
     BrowserModule,

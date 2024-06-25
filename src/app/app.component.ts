@@ -7,4 +7,22 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'admin-panel';
+
+  id: '';
+  name: ''
+  username: ''
+  email: '';
+  address: {
+    street: ''
+    suite: ''
+    city: ''
+    zipcode: ''
+  };
+  phone: ''
+  website: ''
+  company: {
+    name: ''
+    catchPhrase: ''
+    bs: ''
+  };
 }

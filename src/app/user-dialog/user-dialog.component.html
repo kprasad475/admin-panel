@@ -1,0 +1,29 @@
+<div class="modal-header">
+    <h5 class="modal-title">Add User</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="onCancel()"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <label for="firstName" class="form-label"> Name</label>
+        <input type="text" class="form-control" id="firstName" [(ngModel)]="data.firstName" name="firstName">
+      </div>
+      <div class="mb-3">
+        <label for="lastName" class="form-label">LastName</label>
+        <input type="text" class="form-control" id="lastName" [(ngModel)]="data.lastName" name="lastName">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="data.email" name="email">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">City</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="data.email" name="email">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="onSave()">Save</button>
+  </div>
+  
