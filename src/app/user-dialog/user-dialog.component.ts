@@ -15,14 +15,18 @@ export class UserDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: any) {}
 
     ngOnInit():void{
-      
+console.log(this.data)
     }
 
   onCancel(): void {
     this.dialogRef.close();
+    console.log(this.data)
+    console.log("zzzzzz")
   }
 
   onSave(): void {
     this.dialogRef.close(this.data);
+    console.log(this.data);
+    console.log("kkkkkkk")
   }
 }

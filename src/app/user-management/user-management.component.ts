@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User, UserService } from '../user.service';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { UserDialogComponent } from '../user-dialog/user-dialog.component';
-
-
 
 @Component({
   selector: 'app-user-management',
@@ -14,55 +11,58 @@ import { UserDialogComponent } from '../user-dialog/user-dialog.component';
 export class UserManagementComponent implements OnInit {
 
   users: User[] = [];
-  searchText: string = "";
   filteredText: User[] = [];
-  sortCondition:boolean = false
-  originalItems : any [] = []
+  searchText: string = "";
+  sortCondition: boolean = false;
 
-  constructor(private service: UserService,public dialog:MatDialog) { }
+  constructor(private userService: UserService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.service.getUsers().subscribe(data => {
-      this.users = data;
-      this.filteredText = data;
-     this.originalItems = [...this.filteredText];
+    this.fetchUsers();
+  }
 
+  fetchUsers(): void {
+    // Fetch users from backend
+    this.userService.getUsers().subscribe({
+      next: (data: User[]) => {
+        console.log('Users fetched from API:', data);
+        // Try to get users from local storage
+        const storedUsers = localStorage.getItem('users');
+        if (storedUsers) {
+          // Merge stored users with API users
+          const localUsers = JSON.parse(storedUsers);
+          this.users = [...data, ...localUsers];
+        } else {
+          this.users = data;
+        }
+        this.filteredText = [...this.users];
+        // Save merged users to local storage
+        localStorage.setItem('users', JSON.stringify(this.users));
+      },
+      error: (error) => {
+        console.error('Error fetching users:', error);
+      }
     });
   }
 
   search(): void {
-    console.log('Search Text:', this.searchText);
-    if (this.searchText) {
-      this.filteredText = this.users.filter(item => {
-        const matches = item.name.toLowerCase().includes(this.searchText.toLowerCase());
-        console.log('Item:', item.name, 'Matches:', matches);
-        return matches;
-      });
-    } else {
-      this.filteredText = this.users;
-    }
-    console.log(this.filteredText);
+    this.filteredText = this.users.filter(user =>
+      user.name.toLowerCase().includes(this.searchText.toLowerCase())
+    );
   }
-  sort() {
-    // Toggle the sort condition
+
+  sort(): void {
     this.sortCondition = !this.sortCondition;
 
     if (this.sortCondition) {
-      // If sortCondition is true, sort the array
       this.filteredText.sort((a, b) => a.name.localeCompare(b.name));
-      console.log("yyyyy")
     } else {
-      // If sortCondition is false, shuffle the array
-     // this.filteredText = this.shuffleArray([...this.originalItems]);
-     this.filteredText.sort((a, b) => b.name.localeCompare(a.name));
-
-      console.log("kkk")
+      this.filteredText.sort((a, b) => b.name.localeCompare(a.name));
     }
-    console.log(this.sortCondition);
   }
 
-  addUser():void{
-    const newUser = {
+  addUser(): void {
+    const newUser: User = {
       id: '',
       name: '',
       username: '',
@@ -85,7 +85,6 @@ export class UserManagementComponent implements OnInit {
     const dialogRef = this.dialog.open(UserDialogComponent, {
       width: '300px',
       data: newUser
-      
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -93,11 +92,9 @@ export class UserManagementComponent implements OnInit {
         console.log('User added:', result);
         this.users.push(result);
         this.filteredText = [...this.users];
-        this.originalItems = [...this.filteredText];
-        // You can now handle the result (e.g., send it to the server)
+        localStorage.setItem('users', JSON.stringify(this.users));
+        console.log('Updated users saved to local storage:', this.users);
       }
     });
   }
-  
-  
 }
