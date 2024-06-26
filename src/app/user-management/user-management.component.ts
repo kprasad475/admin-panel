@@ -14,6 +14,7 @@ export class UserManagementComponent implements OnInit {
   filteredText: User[] = [];
   searchText: string = "";
   sortCondition: boolean = false;
+  index:any='';
 
   constructor(private userService: UserService, public dialog: MatDialog) { }
 
@@ -22,27 +23,34 @@ export class UserManagementComponent implements OnInit {
   }
 
   fetchUsers(): void {
-    // Fetch users from backend
     this.userService.getUsers().subscribe({
       next: (data: User[]) => {
         console.log('Users fetched from API:', data);
-        // Try to get users from local storage
         const storedUsers = localStorage.getItem('users');
         if (storedUsers) {
-          // Merge stored users with API users
-          const localUsers = JSON.parse(storedUsers);
-          this.users = [...data, ...localUsers];
+          const localUsers: User[] = JSON.parse(storedUsers);
+          const mergedUsers = this.mergeUsers(data, localUsers);
+          this.users = mergedUsers;
         } else {
           this.users = data;
+          this.index=data.forEach(x=>{x.id})
         }
         this.filteredText = [...this.users];
-        // Save merged users to local storage
         localStorage.setItem('users', JSON.stringify(this.users));
       },
       error: (error) => {
         console.error('Error fetching users:', error);
       }
     });
+  }
+
+  mergeUsers(apiUsers: User[], localUsers: User[]): User[] {
+    const userMap = new Map<string, User>();
+
+    apiUsers.forEach(user => userMap.set(user.id.toString(), user));
+    localUsers.forEach(user => userMap.set(user.id.toString(), user));
+
+    return Array.from(userMap.values());
   }
 
   search(): void {
@@ -53,7 +61,6 @@ export class UserManagementComponent implements OnInit {
 
   sort(): void {
     this.sortCondition = !this.sortCondition;
-
     if (this.sortCondition) {
       this.filteredText.sort((a, b) => a.name.localeCompare(b.name));
     } else {
@@ -63,7 +70,7 @@ export class UserManagementComponent implements OnInit {
 
   addUser(): void {
     const newUser: User = {
-      id: '',
+      id: this.generateUniqueId(),
       name: '',
       username: '',
       email: '',
@@ -96,5 +103,35 @@ export class UserManagementComponent implements OnInit {
         console.log('Updated users saved to local storage:', this.users);
       }
     });
+  }
+  deleteUser(user:User){
+//this.filteredText.splice(index,1);
+this.users = this.users.filter(u => u.id !== user.id);
+this.filteredText = [...this.users];
+localStorage.setItem('users', JSON.stringify(this.users));
+console.log('User deleted:', user);
+  }
+
+  editUser(user:User){
+    const dialogRef = this.dialog.open(UserDialogComponent, {
+      width: '300px',
+      data: { ...user }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        const index = this.users.findIndex(u => u.id === result.id);
+        if (index !== -1) {
+          this.users[index] = result;
+          this.filteredText = [...this.users];
+          localStorage.setItem('users', JSON.stringify(this.users));
+          console.log('User updated:', result);
+        }
+      }
+    });
+  }
+
+  generateUniqueId(): string {
+    return '_' + Math.random().toString(36).substr(2, 9);
   }
 }
